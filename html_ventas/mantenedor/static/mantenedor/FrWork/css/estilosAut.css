@@ -1,7 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    background: url(../libro.jpg);
+    background: url(/static/mantenedor/FotosImg/libr2.jpg);
     background-size: cover;
     background-attachment: fixed;
 }

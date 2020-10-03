@@ -18,47 +18,59 @@
    							  </div>
    						  </div>
 						  <div class="form-group">
-							  <label class="col-sm-3 control-label" for="input01">Descripción Modelo</label>
+							  <label class="col-sm-3 control-label" for="input01">Descripción del curso</label>
 							  <div class="col-sm-3">
 								  <input notnull="" title="Descripción" type="text" class="input-large required " id="txDescrip" name="txDescrip" maxlength="100" value="">
 							  </div>
 						  </div>
                            <div class="form-group">
-							  <label class="col-sm-3 control-label" for="input01">Cantidad</label>
+							  <label class="col-sm-3 control-label" for="input01">Duracion (Hrs)</label>
 							  <div class="col-sm-3">
-								  <input notnull="" title="Cantidad" type="text" class="input-large required " id="txCantidad" name="txCantidad" maxlength="100" value="0">
+								  <input notnull="" title="Duracion" type="text" class="input-large required " id="txDuracion" name="txDuracion" maxlength="100" value="0">
+							  </div>
+						  </div>
+                           <div class="form-group">
+							  <label class="col-sm-3 control-label" for="input01">Cantidad de clases</label>
+							  <div class="col-sm-3">
+								  <input notnull="" title="Cantidad de clases" type="text" class="input-large required " id="txCantidaClass" name="txCantidaClass" maxlength="100" value="">
 							  </div>
 						  </div>
                             <div class="form-group">
-							  <label class="col-sm-3 control-label" for="input01">Temporada</label>
+							    <label class="col-sm-3 control-label" for="input01">Temporada realizacion</label>
 							  <div class="col-sm-3">
-							  <select notnull="" title="Identificador de la Empresa" id="cbTemporada" name="cbTemporada" class="form-combo" style="width: 350px;">
-							  <option selected="" value="1001">PRIMAVERA</option>
-								<option value="1002">VERANO</option>
-                                <option value="1003">OTOÑO</option>
-								<option value="1004">INVIERNO</option>
-								
+							  <select notnull="" title="Identificador de Temporada" id="cbTemporada" name="cbTemporada" class="form-combo" style="width: 350px;">
+							  <option selected="" value="1001">2020</option>
+								<option value="1002">2019</option>
+                                <option value="1003">2018</option>
+								<option value="1004">2017</option>
 							  </select>
 							  </div>
-						 </div>
-						  {% comment %} <div class="form-group">
-							  <label class="col-sm-3 control-label" for="input01">Marca</label>
+						    </div>
+                           <div class="form-group">
+							  <label class="col-sm-3 control-label" for="input01">Nivel</label>
 							  <div class="col-sm-3">
-							  <select notnull="" title="Identificador de la Empresa" id="cbMarca" name="cbMarca" class="form-combo" style="width: 350px;">
-							  <option selected="" value="101">NIKE</option>
-								<option value="1001">ADIDAS</option>
-								<option value="1003">LEVI´S</option>
-								<option value="1004">TIMBERLAND</option>
-								<option value="1005">THE NORT FACE</option>
-								<option value="1006">DOITE</option>
-								<option value="1007">PUMA</option>
-								<option value="1008">REEBOK</option>
-								<option value="1009">GUCCI</option>
-								<option value="1010">JJO</option>
+							  <select notnull="" title="Nivel" id="cbNivel" name="cbNivel" class="form-combo" style="width: 350px;">
+							  <option selected="" value="1001">Principiante</option>
+								<option value="1002">Intermedio</option>
+                                <option value="1003">Experto</option>
+								<option value="1004">Todos los niveles</option>
 							  </select>
-							  </div>
-						 </div> {% endcomment %}
-						  </<form class="" action="index.html" method="post">
+							 </div>
+                             </div>
+                              <div class="form-group">
+							  <label class="col-sm-3 control-label" for="input01">Idioma</label>
+							  <div class="col-sm-3">
+							  <select notnull="" title="Idioma" id="cbNivel" name="cbIdioma" class="form-combo" style="width: 350px;">
+							  <option selected="" value="1001">Español</option>
+								<option value="1002">Inlges</option>
+                                <option value="1003">Frances</option>
+								<option value="1004">Chino</option>
+							  </select>
+							 </div>
+                             </div>
+                            
+
+						  <form class="" action="index.html" method="post">
 
 						  </form>
 					  </div>
