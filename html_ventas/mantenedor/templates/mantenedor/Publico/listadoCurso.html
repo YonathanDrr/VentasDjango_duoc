@@ -1,0 +1,51 @@
+{%extends 'mantenedor/Publico/base.html' %}
+
+
+{% load static %}
+
+
+{% block js %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{% static 'mantenedor/js/confirmacion.js' %}"></script>
+
+{% endblock %}
+
+
+
+
+{% block contenido%}
+
+<h2>listado</h2>
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Precio</th>
+        <th>Talla</th>
+        <th>Opciones</th>
+
+    </tr>
+
+
+    {% for c in listadoCursos %}
+
+  <tr>
+        <th>{{ c.nombre}}</th>
+        <th>{{ c.marca}}</th>
+        <th>{{ c.modelo}}</th>
+        <th>{{ c.precio}}</th>
+        <th>{{ c.talla}}</th>
+        <td>
+            <a href="{% url 'modificarCurso' c.id%}">Modificar</a>
+        </td>
+          <td>
+            <a href="#" onclick="confirmarEliminacion({{ c.id }})">Eliminar</a>
+        </td>
+
+        
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

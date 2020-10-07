@@ -13,13 +13,13 @@ class Registrado(models.Model):
     def __unicode__(self) : #Python 2
         return self.email
 
-        def __str__(self) : #Python 3
+        def __str__(self) : #Python 3   como se debe renderizar el objeto puede ser por nombre,email o lo que uno desee que se muestre
             return self.email
 
 
 
 class Persona(models.Model):
-    nombrePersona = models.CharField(max_length=50)
+    nombrePersona = models.CharField(max_length=50,verbose_name="Nombre Persona")
     apellidoPersona = models.CharField(max_length=50)
     sexo = models.CharField(max_length=15, null = True)
     email = models.EmailField()
@@ -32,8 +32,8 @@ class Persona(models.Model):
     def __unicode__(self) : #Python 2
         return self.email
 
-        def __str__(self) : #Python 3
-            return self.email
+    def __str__(self) : #Python 3 
+        return self.nombrePersona + ' ' + self.apellidoPersona
 
 
 class Descuento(models.Model) :
@@ -51,37 +51,39 @@ class Comuna(models.Model) :
     class Meta:
         db_table ='comuna'
 
-
+    def __str__(self):
+        return self.nombre
     
 class Region(models.Model) :
-    idcom = models.ForeignKey(Comuna, on_delete=models.CASCADE)
+    idcom = models.ForeignKey(Comuna, on_delete=models.CASCADE, verbose_name="Id Comuna")
     nombre = models.CharField( max_length=100)
-    
     class Meta:
         db_table ='region'
 
+    
+    def __str__(self) : #Python3
+        return self.nombre
 
 
-class Producto(models.Model) :
+
+class Producto(models.Model):
     nombre = models.CharField( max_length=50)
     marca = models.CharField( max_length=50)
     modelo = models.CharField( max_length=50)
-    precio = models.IntegerField()
-    talla = models.CharField(max_length=3)
-    
+    precio = models.IntegerField() 
+    talla = models.CharField( max_length=3)
+
     class Meta:
-        db_table ='producto'
-
-
+        db_table = 'producto'
 
 class DetalleProducto(models.Model) :
     codProd =models.ForeignKey(Producto, on_delete=models.CASCADE)
     codDesc =models.ForeignKey(Descuento, on_delete=models.CASCADE)
-    stock = models.IntegerField()
-    color = models.CharField( max_length=10)
-    tipo = models.CharField(max_length=10)
-    material = models.CharField(max_length=3)
-    
+    duracion = models.IntegerField()
+    cantidadClass = models.IntegerField()
+    temporada = models.CharField(max_length=10)
+    nivel = models.CharField(max_length=15)
+    idioma = models.CharField(max_length=15)
     class Meta:
         db_table ='detallePro'
 
@@ -98,8 +100,8 @@ class Contacto(models.Model) :
     def __unicode__(self) : #Python2
         return self.email
 
-        def __str__(self) : #Python3
-            return self.email
+    def __str__(self) : #Python3
+        return self.email
     
         
 class boleta (models.Model) :
@@ -115,8 +117,8 @@ class boleta (models.Model) :
     def __unicode__(self) : #Python2
         return self.email
     
-        def __str__(self) : #Python3
-            return self.email
+    def __str__(self) : #Python3
+        return self.email
     
 
 

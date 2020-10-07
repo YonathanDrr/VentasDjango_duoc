@@ -25,3 +25,7 @@ urlpatterns = [
 
 
 ]
+
+admin.site.site_header="Administracion de Ducky"
+admin.site.index_title="Modulos de administración"
+admin.site.site_title="Ducky"

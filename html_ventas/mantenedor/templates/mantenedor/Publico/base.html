@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="{% static 'mantenedor/FrWork/css/normalize.css'%} ">
     <link rel="stylesheet" href="{% static 'mantenedor/FrWork/css/skeleton.css'%}">
     <link rel="stylesheet" href="{% static 'mantenedor/FrWork/css/custom.css'%}">
+    <link rel="stylesheet" href="{% static 'mantenedor/FrWork/css/estilosBase.css'%}">
+   
+
 
     {%block css%}
 
@@ -23,18 +26,26 @@
 <header id="header" class="barra">
     <div class="container">
         <div class="row">
-            <div class="four columns">DUCKY
-                <img src="{% comment %} {% static 'mantenedor/FotosImg/logo.jpg'%} {% endcomment %}" id="logo">
+            <div class="four columns">
+                <h2>Ducky Cursos</h2>
             </div>
-            <div class="two columns u-pull-right">
-                <ul>
-                  <li>
-                    <a href="{% url 'login'%}">Inicar sesión</a>
-                  </li>
-                  <li>            
-                   <a href="{% url 'registrar'%}">Registrarse</a>
-                  </li>
-                  <li class="submenu">
+            <div class="">
+                <nav>
+                    <ul>
+                        <li>
+                            <a class="active" href="{% url 'login'%}" class="">Inicar sesión</a>
+                        </li>
+                        <li>            
+                             <a class="active" href="{% url 'registrar'%}" class="">Registrarse</a>
+                        </li>
+                        <li>            
+                            <a class="active"  href="{% url 'agregarCurso'%}" class="">Agregar Cursos</a>
+                        </li>
+                        <li>            
+                             <a class="active" href="{% url 'listadoCurso'%}" class="">Listar Cursos</a>
+                        </li>
+
+                        <li class="submenu">
                             <img src="{% static 'mantenedor/FotosImg/cart.png'%}" id="img-carrito">
                             <div id="carrito">
                                     <p class="vacio">Carrito Vacio</p>
@@ -69,9 +80,15 @@
 
                                     <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
                             </div>
-                    </li>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+                
+                        
                    
                 </ul>
+              </nav>
             </div>
         </div> 
     </div>

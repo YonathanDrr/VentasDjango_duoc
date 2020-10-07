@@ -11,8 +11,21 @@ urlpatterns = [
     path('FrMarca.html', views.marca, name = 'marca'),
     path('loginPublic.html', views.login, name = 'login'),
     path('registrarPublic.html', views.registrar, name = 'registrar'),
+    path('FrLogin.html', views.loginFr, name = 'loginFr'),
+    path('listadoCurso.html', views.listadoCurso, name = 'listadoCurso'),
+    path('agregarCursos.html', views.agregarCurso, name = 'agregarCurso'),
+    path('modificarCursos.html/<id>/', views.modificarCurso, name = 'modificarCurso'),
+    path('eliminarCursos/<id>/', views.eliminarCurso, name = 'eliminarCurso'),
 
-    
+
+
+
+
+
+
+
+
+
     
 
    
