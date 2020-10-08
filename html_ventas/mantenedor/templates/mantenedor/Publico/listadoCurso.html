@@ -17,14 +17,16 @@
 
 <h2>listado</h2>
 <table>
+{% csrf_token %}
     <tr>
         <th>Nombre</th>
         <th>Marca</th>
         <th>Modelo</th>
         <th>Precio</th>
         <th>Talla</th>
+         {% if user.is_authenticated%}
         <th>Opciones</th>
-
+        {%endif%}
     </tr>
 
 
@@ -36,6 +38,9 @@
         <th>{{ c.modelo}}</th>
         <th>{{ c.precio}}</th>
         <th>{{ c.talla}}</th>
+
+
+        {% if user.is_authenticated%}
         <td>
             <a href="{% url 'modificarCurso' c.id%}">Modificar</a>
         </td>
@@ -45,7 +50,7 @@
         {% comment %} <td>
             <a href="#" onclick="confirmarEliminacion({{ c.id }})">Eliminar</a>
         </td> {% endcomment %}
-        
+        {%endif%}
     </tr>
     {% endfor %}
 </table>

@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from.models import Producto
 from .forms import ProductoForm
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -47,7 +48,7 @@ def loginFr(request):
 
 
 
-
+@login_required
 def agregarCurso(request):
     data = {
         'form':ProductoForm

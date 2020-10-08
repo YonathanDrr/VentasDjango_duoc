@@ -24,6 +24,7 @@
 <body>
 {% comment %} encabezado: titulo,iniciar sesion, registrar, salir   {% endcomment %}
 <header id="header" class="barra">
+{% csrf_token %}
     <div class="container">
         <div class="row">
             <div class="four columns">
@@ -38,14 +39,22 @@
                         <li>            
                              <a class="active" href="{% url 'registrar'%}" class="">Registrarse</a>
                         </li>
+                          <li>            
+                             <a class="active" href="{% url 'listadoCurso'%}" class="">Listar Cursos</a>
+                        </li>
+                         {% if user.is_authenticated%}
                         <li>            
                             <a class="active"  href="{% url 'agregarCurso'%}" class="">Agregar Cursos</a>
                         </li>
-                        <li>            
-                             <a class="active" href="{% url 'listadoCurso'%}" class="">Listar Cursos</a>
+                         <li>            
+                             <a class="active" href="#" class="">User: {{ user.username}}</a>
                         </li>
+                        <li>            
+                             <a class="active" href="{% url 'logout'%}" class="">Cerrar Sesion</a>
+                        </li>
+                        {% endif %}
 
-                        <li class="submenu">
+                        {% comment %} <li class="submenu">
                             <img src="{% static 'mantenedor/FotosImg/cart.png'%}" id="img-carrito">
                             <div id="carrito">
                                     <p class="vacio">Carrito Vacio</p>
@@ -80,7 +89,8 @@
 
                                     <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
                             </div>
-                        </li>
+                        </li> {% endcomment %}
+
                     </ul>
                 </nav>
             </div>

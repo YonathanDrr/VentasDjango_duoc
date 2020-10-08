@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path 
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mantenedor/', include('mantenedor.urls')),
-   #path('', mantenedor.views.public, name = 'public'),
+    path('accounts/', include('django.contrib.auth.urls'))
 
     #path('publico/', include('publico.urls')),
 
@@ -29,3 +30,6 @@ urlpatterns = [
 admin.site.site_header="Administracion de Ducky"
 admin.site.index_title="Modulos de administración"
 admin.site.site_title="Ducky"
+
+
+#urlpatterns += static(setting.MEDIA_URL, document_root=setting.MEDIA_ROOT)

@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+#rederige si  iniciamo o salimos de la sesion
+LOGIN_REDIRECT_URL ='public'
+LOGOUT_REDIRECT_URL ='public'
+
+
 
 # Application definition
 
