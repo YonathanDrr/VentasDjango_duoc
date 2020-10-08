@@ -15,22 +15,8 @@ urlpatterns = [
     path('listadoCurso.html', views.listadoCurso, name = 'listadoCurso'),
     path('agregarCursos.html', views.agregarCurso, name = 'agregarCurso'),
     path('modificarCursos.html/<id>/', views.modificarCurso, name = 'modificarCurso'),
-    path('eliminarCursos/<id>/', views.eliminarCurso, name = 'eliminarCurso'),
+    path('eliminarCursos.html/<id>/', views.eliminarCurso, name = 'eliminarCurso'),
 
-
-
-
-
-
-
-
-
-
-    
-
-   
 
 ]
 
-
-"""  path('login.html', views.login, name = 'index')"""

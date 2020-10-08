@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 #from .forms import RegModelForm , ContactForm
 #from .models import Registrado
 from django.http import HttpResponse
@@ -58,6 +58,8 @@ def agregarCurso(request):
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] = "Curso agregado exitosamente"
+#nuevo formulario
+    #data['form'] = formulario
 
     return render(request,"mantenedor/Publico/agregarCursos.html",data)
 
@@ -82,16 +84,22 @@ def modificarCurso(request, id) :
             formulario.save()
             data['mensaje'] = "Modificación Exitosa !!"
             data['form'] = formulario
-
-
+#nuevo formulario
+    #data['form'] = formulario
 
     return render(request,"mantenedor/Publico/modificarCursos.html", data)
 
 
 def eliminarCurso(request, id) :
-    producto = Producto.objects.get (id = id)
+    producto = Producto.objects.get(id = id)
     producto.delete()
+    data = {
+        'form': ProductoForm
+    }
 
+    if producto.is_valid():
+        data['mensaje'] = "Eliminado !!"
 
-    return redirect(to = 'listadoCurso')
+           
+    return redirect(to='listadoCurso')
     

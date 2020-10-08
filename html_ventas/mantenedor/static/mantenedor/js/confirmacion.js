@@ -12,10 +12,10 @@ function confirmarEliminacion(id) {
         if (result.isConfirmed) {
             
             //redirigir al usuario a la rutas eliminar
-
-            window.location.href ="mantenedor/eliminarCursos/"+id+"/";
+            window.location.href ="/eliminarCursos.html/"+id+"/";
     
-  }
-})
-
+        }
+    })
 }
+
+

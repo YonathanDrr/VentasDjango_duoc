@@ -40,9 +40,11 @@
             <a href="{% url 'modificarCurso' c.id%}">Modificar</a>
         </td>
           <td>
-            <a href="#" onclick="confirmarEliminacion({{ c.id }})">Eliminar</a>
+            <a href="{% url 'eliminarCurso' c.id %}">Eliminar</a>
         </td>
-
+        {% comment %} <td>
+            <a href="#" onclick="confirmarEliminacion({{ c.id }})">Eliminar</a>
+        </td> {% endcomment %}
         
     </tr>
     {% endfor %}
