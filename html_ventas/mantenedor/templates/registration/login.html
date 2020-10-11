@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+{% load crispy_forms_tags %}
+
     {%load static%}
 	<meta charset="UTF-8">
 	<title></title> 
@@ -20,10 +22,11 @@
     <form action="" method="POST" class="formulario">
          
          
-      <h1>Login</h1>
-        <div class="contenedor">
+        <h1>Iniciar sesion</h1>
+        <hr>
+        <div class="contenedor border form-control">
         {% csrf_token %}
-            {{form.as_table}}
+            {{form | crispy}}
 
             
          
@@ -42,9 +45,11 @@
                 <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
                 <p>¿No tienes una cuenta? <a class="link" href="{% url 'registrar'%}">Registrate </a></p> {% endcomment %}
         </div>
-        <input type="submit" value="Login" class="button">
+        <input type="submit" value="Iniciar Sesion" class="button">
+        <hr>
+        <input type="reset" value="Limpiar" class="button">
         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-                <p>¿No tienes una cuenta? <a class="link" href="{% url 'registrar'%}">Registrate </a></p>
+                <p>¿No tienes una cuenta? <a class="link" href="{% url 'registrarUsuario'%}">Registrate </a></p>
     </form>
 </body>
 </html>

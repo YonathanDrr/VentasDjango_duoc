@@ -3,8 +3,9 @@ from django.shortcuts import render, redirect
 #from .models import Registrado
 from django.http import HttpResponse
 from.models import Producto
-from .forms import ProductoForm
-from django.contrib.auth.decorators import login_required
+from .forms import ProductoForm, CustomUserForm
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth import login,authenticate
 
 
 
@@ -37,9 +38,9 @@ def login(request):
     return render(request,"mantenedor/Publico/loginPublic.html")        
 
 
-def registrar(request):
+""" def registrar(request):
     return render(request,"mantenedor/Publico/registrarPublic.html")    
-
+ """
 
 
 def loginFr(request):
@@ -51,11 +52,11 @@ def loginFr(request):
 @login_required
 def agregarCurso(request):
     data = {
-        'form':ProductoForm
+        'form':ProductoForm()
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(request.POST)
+        formulario = ProductoForm(request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] = "Curso agregado exitosamente"
@@ -80,7 +81,7 @@ def modificarCurso(request, id) :
     }
 
     if request.method == 'POST' :
-        formulario = ProductoForm(data = request.POST, instance = producto)
+        formulario = ProductoForm(data = request.POST, instance = producto,files=request.FILES)
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] = "Modificación Exitosa !!"
@@ -94,13 +95,30 @@ def modificarCurso(request, id) :
 def eliminarCurso(request, id) :
     producto = Producto.objects.get(id = id)
     producto.delete()
-    data = {
-        'form': ProductoForm
-    }
-
-    if producto.is_valid():
-        data['mensaje'] = "Eliminado !!"
-
+   
            
     return redirect(to='listadoCurso')
     
+
+def registrarUsuario(request):
+    data = {
+        'form':CustomUserForm()
+    }
+
+    if request.method == 'POST':
+        formulario = CustomUserForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+
+            data['mensaje'] ="Usuario Registrado Correctamente"
+            return redirect(to='login')
+            
+
+            #autenticar al usuario y rederigirlo al inicio
+            """ username = formulario.cleaned_data['username']
+            password = formulario.cleaned_data['password1']
+            user = authenticate(username = username, password = password)
+            login(request, user)
+            return redirect(to='public')
+ """
+    return render(request,'registration/registrar.html',data)

@@ -7,6 +7,7 @@
 {% block js %}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="{% static 'mantenedor/js/confirmacion.js' %}"></script>
+    
 
 {% endblock %}
 
@@ -16,7 +17,7 @@
 {% block contenido%}
 
 <h2>listado</h2>
-<table>
+<table class="table table-striped text-uppercase">
 {% csrf_token %}
     <tr>
         <th>Nombre</th>

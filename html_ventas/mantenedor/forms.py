@@ -1,6 +1,8 @@
 from django import forms
 from django.forms import ModelForm
 from .models import Producto
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 #Se realiza el tipo de form que se quiere mostrar
 class ProductoForm(ModelForm):
@@ -30,3 +32,11 @@ class ProductoForm(ModelForm):
             raise forms.ValidationError("La fecha no se puede ser mayo al del dia de hoy")
 
         return fecha
+
+class CustomUserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields =['first_name','last_name','email','username','password1','password2']
+
+   
+    

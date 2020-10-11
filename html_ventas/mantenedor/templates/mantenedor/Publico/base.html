@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'mantenedor/FrWork/css/skeleton.css'%}">
     <link rel="stylesheet" href="{% static 'mantenedor/FrWork/css/custom.css'%}">
     <link rel="stylesheet" href="{% static 'mantenedor/FrWork/css/estilosBase.css'%}">
-   
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 
     {%block css%}
@@ -26,31 +26,36 @@
 <header id="header" class="barra">
 {% csrf_token %}
     <div class="container">
-        <div class="row">
-            <div class="four columns">
-                <h2>Ducky Cursos</h2>
+        <div class="float-left">
+                <h2 class="display-4 text-white">Ducky Cursos</h2>
             </div>
+        <div class="float-right">
+            
             <div class="">
                 <nav>
                     <ul>
+                         <li>
+                            <a class="" href="{% url 'public'%}" class="">Inicio</a>
+                        </li>
                         <li>
-                            <a class="active" href="{% url 'login'%}" class="">Inicar sesión</a>
+                            <a class="" href="{% url 'login'%}" class="">Inicar sesión</a>
                         </li>
                         <li>            
-                             <a class="active" href="{% url 'registrar'%}" class="">Registrarse</a>
+                             <a class="" href="{% url 'registrarUsuario'%}" class="">Registrarse</a>
                         </li>
                           <li>            
-                             <a class="active" href="{% url 'listadoCurso'%}" class="">Listar Cursos</a>
+                             <a class="" href="{% url 'listadoCurso'%}" class="">Listar Cursos</a>
                         </li>
+                        {% comment %} se agrega un if para validad si el usuario esta registrado , si es TRUE muestra las opciones de abajo {% endcomment %}
                          {% if user.is_authenticated%}
                         <li>            
-                            <a class="active"  href="{% url 'agregarCurso'%}" class="">Agregar Cursos</a>
+                            <a class=""  href="{% url 'agregarCurso'%}" class="">Agregar Cursos</a>
                         </li>
                          <li>            
-                             <a class="active" href="#" class="">User: {{ user.username}}</a>
+                             <a class="" href="#" class="">User: {{ user.username}}</a>
                         </li>
                         <li>            
-                             <a class="active" href="{% url 'logout'%}" class="">Cerrar Sesion</a>
+                             <a class="" href="{% url 'logout'%}" class="">Cerrar Sesion</a>
                         </li>
                         {% endif %}
 
@@ -143,15 +148,12 @@
 {% comment %} Inicio Cuerpo del Html base {% endcomment %}
 
 
- <div id="lista-cursos" class="container">
+        <div  class="container">
+      
+           {% block contenido %}
 
-        {% block contenido %}
-
-
-        {% endblock  %}
-
-
- </div>  
+           {% endblock  %}
+        </div>  
 
 {% comment %} Fin del Cuerpo del Html base {% endcomment %}
 
@@ -181,6 +183,8 @@
     </footer>
 
 {%block js%}
+
+
 
 {%endblock%}
 

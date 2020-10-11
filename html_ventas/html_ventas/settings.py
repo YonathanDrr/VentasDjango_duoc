@@ -32,7 +32,6 @@ LOGIN_REDIRECT_URL ='public'
 LOGOUT_REDIRECT_URL ='public'
 
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,8 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mantenedor.apps.MantenedorConfig',
+    'crispy_forms',
   
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

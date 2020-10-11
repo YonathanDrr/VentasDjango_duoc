@@ -9,13 +9,14 @@ urlpatterns = [
     path('FrProducto.html', views.producto, name = 'producto'),
     path('FrModelo.html', views.modelo, name = 'modelo'),
     path('FrMarca.html', views.marca, name = 'marca'),
-    path('loginPublic.html', views.login, name = 'logina'),
-    path('registrarPublic.html', views.registrar, name = 'registrar'),
+    #path('loginPublic.html', views.login, name = 'logina'),
+    #path('registrarPublic.html', views.registrar, name = 'registrar'),
     path('FrLogin.html', views.loginFr, name = 'loginFr'),
     path('listadoCurso.html', views.listadoCurso, name = 'listadoCurso'),
     path('agregarCursos.html', views.agregarCurso, name = 'agregarCurso'),
     path('modificarCursos.html/<id>/', views.modificarCurso, name = 'modificarCurso'),
     path('eliminarCursos.html/<id>/', views.eliminarCurso, name = 'eliminarCurso'),
+    path('registro/',views.registrarUsuario,name='registrarUsuario'),
 
 
 ]
