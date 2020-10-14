@@ -17,12 +17,15 @@ from django.contrib import admin
 from django.urls import include, path 
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mantenedor/', include('mantenedor.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('oauth/', include('social_django.urls', namespace='social'))
+    path('oauth/', include('social_django.urls', namespace='social')),
+    path('', include('pwa.urls')),
 
+  
     #path('publico/', include('publico.urls')),
 
 

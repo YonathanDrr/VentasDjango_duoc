@@ -1,0 +1,64 @@
+{%extends 'mantenedor/Publico/base.html' %}
+
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+{% endblock %}
+
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="{% static 'mantenedor/js/confirmacion.js' %}"></script>
+
+
+{% endblock %}
+
+
+
+{% block contenido %}
+
+
+<h1 class="text-uppercase">listado de cursos</h1>
+<hr>
+<table class="table table-light text-uppercase">
+    {% csrf_token %}
+    <tr class="table-primary">
+        <th>Nombre</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Precio</th>
+        <th>Talla</th>
+        {% if user.is_authenticated%}
+        <th>Opciones</th>
+        {%endif%}
+    </tr>
+
+
+    {% for c in listadoCursos %}
+
+    <tr class="table-secondary">
+        <th>{{ c.nombre}}</th>
+        <th>{{ c.marca}}</th>
+        <th>{{ c.modelo}}</th>
+        <th>{{ c.precio}}</th>
+        <th>{{ c.talla}}</th>
+
+
+        {% if user.is_authenticated%}
+        <td>
+            <a href="{% url 'modificarCurso' c.id%}">Modificar</a>
+        </td>
+        <td>
+            <a href="{% url 'eliminarCurso' c.id %}">Eliminar</a>
+        </td>
+        {% comment %} <td>
+            <a href="#" onclick="confirmarEliminacion({{ c.id }})">Eliminar</a>
+        </td> {% endcomment %}
+        {%endif%}
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

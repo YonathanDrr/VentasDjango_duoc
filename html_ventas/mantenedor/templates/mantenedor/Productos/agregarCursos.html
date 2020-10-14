@@ -1,0 +1,27 @@
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+
+{% block css %}
+
+{% endblock %}
+
+{% load static %}
+
+{% block contenido%}
+
+<h1 class="text-uppercase">Agregar Cursos</h1>
+
+<table class="table table-dark" action="" method="POST">
+    {% csrf_token %}
+
+    {{ form | crispy }}
+
+    <div class="float-right">
+        <input type="reset" value="Limpiar" class="btn btn-primary">
+        <input type="submit" value="Guardar" class="btn btn-success">
+    </div>
+
+</table>
+{{mensaje}}
+
+{% endblock %}

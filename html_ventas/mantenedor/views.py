@@ -6,7 +6,18 @@ from.models import Producto
 from .forms import ProductoForm, CustomUserForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login,authenticate
+# Nos sirve para redireccionar despues de una acción revertiendo patrones de expresiones regulares 
+ 
+from django.views.generic import ListView, DetailView 
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+ 
+from django.urls import reverse
+ 
+from django.contrib import messages 
+from django.contrib.messages.views import SuccessMessageMixin 
+ 
+from django import forms
 
 
 
@@ -37,6 +48,18 @@ def public(request):
 def login(request):
     return render(request,"mantenedor/Publico/loginPublic.html")        
 
+def menuMantenedor(request):
+    return render(request,"mantenedor/Publico/menu.html")          
+
+def menuBase(request):
+    return render(request,"mantenedor/Publico/menuBase.html")         
+
+def perfil(request):
+    return render(request,"mantenedor/Publico/perfil.html")          
+
+def compra(request):
+    return render(request,"mantenedor/Publico/compras.html")          
+
 
 """ def registrar(request):
     return render(request,"mantenedor/Publico/registrarPublic.html")    
@@ -63,7 +86,7 @@ def agregarCurso(request):
 #nuevo formulario
     #data['form'] = formulario
 
-    return render(request,"mantenedor/Publico/agregarCursos.html",data)
+    return render(request,"mantenedor/Productos/agregarCursos.html",data)
 
 
 def listadoCurso(request):
@@ -122,3 +145,41 @@ def registrarUsuario(request):
             return redirect(to='public')
  """
     return render(request,'registration/registrar.html',data)
+
+
+class ProductoListado(ListView): 
+    model = Producto
+ 
+class ProductoDetalle(DetailView): 
+    model = Producto
+ 
+class ProductoCrear(SuccessMessageMixin, CreateView): 
+    model = Producto
+    form = Producto
+    fields = "__all__" 
+    success_message = 'Producto Creado Correctamente !' # Mostramos este Mensaje luego de Crear un Postre     
+ 
+    # Redireccionamos a la página principal luego de crear un registro o postre
+    def get_success_url(self):        
+        return reverse('leer') # Redireccionamos a la vista principal 'leer' 
+ 
+class ProductoActualizar(SuccessMessageMixin, UpdateView): 
+    model = Producto
+    form = Producto
+    fields = "__all__"  
+    success_message = 'Producto Actualizado Correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
+ 
+    # Redireccionamos a la página principal luego de actualizar un registro o postre
+    def get_success_url(self):               
+        return reverse('leer') # Redireccionamos a la vista principal 'leer' 
+ 
+class ProductoEliminar(SuccessMessageMixin, DeleteView): 
+    model = Producto 
+    form = Producto
+    fields = "__all__"     
+ 
+    # Redireccionamos a la página principal luego de eliminar un registro o postre
+    def get_success_url(self): 
+        success_message = 'Producto Eliminado Correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
+        messages.success (self.request, (success_message))       
+        return reverse('leer') # Redireccionamos a la vista principal 'leer'

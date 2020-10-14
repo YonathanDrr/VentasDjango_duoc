@@ -1,0 +1,44 @@
+{%extends 'mantenedor/Publico/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+{% endblock %}
+
+{% block contenido%}
+
+<h1 class="text-uppercase">MANTENEDOR</h1>
+
+<header id="" class="">
+    {% csrf_token %}
+    <div class="container">
+        <div class="table">
+            <nav>
+                <ul>
+                    <!--  {% comment %} se agrega un if para validad si el usuario esta registrado , si es TRUE
+                            muestra las opciones de abajo {% endcomment %} -->
+                    {% if user.is_authenticated%}
+                    <li>
+                        <a class="table-dark" href="{% url 'public'%}" class="">Inicio</a>
+                    </li>
+                    <li>
+                        <a class="table-dark" href="{% url 'listadoCurso'%}" class="">Listar Cursos</a>
+                    </li>
+                    <li>
+                        <a class="table-dark" href="{% url 'agregarCurso'%}" class="">Agregar Cursos</a>
+                    </li>
+                    {% endif %}
+
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+    </div>
+</header>
+{{mensaje}}
+
+{% endblock %}
