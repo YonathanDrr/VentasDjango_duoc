@@ -9,7 +9,7 @@ class PersonaAdmin(admin.ModelAdmin):
     list_per_page=10
 
 admin.site.register(Producto)
-admin.site.register(Registrado)
+#admin.site.register(Registrado)
 admin.site.register(Persona, PersonaAdmin)
 admin.site.register(Descuento)
 admin.site.register(Comuna)
