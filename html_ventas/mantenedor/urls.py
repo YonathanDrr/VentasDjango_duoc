@@ -14,6 +14,7 @@ urlpatterns = [
     path('FrMarca.html', views.marca, name = 'marca'),
     #path('loginPublic.html', views.login, name = 'logina'),
     #path('registrarPublic.html', views.registrar, name = 'registrar'),
+    #path('cursos/', views.myfirstview, name = 'myfirstview'),
     path('FrLogin.html', views.loginFr, name = 'loginFr'),
     path('listadoCurso.html', views.listadoCurso, name = 'listadoCurso'),
     path('agregarCursos.html', views.agregarCurso, name = 'agregarCurso'),
@@ -21,6 +22,8 @@ urlpatterns = [
     path('menu.html', views.menuMantenedor, name = 'menuMantenedor'),
     path('eliminarCursos.html/<id>/', views.eliminarCurso, name = 'eliminarCurso'),
     path('registro/',views.registrarUsuario,name='registrarUsuario'),
+    path('listadoPersona/',views.personaListado,name='personaListado'),
+
 
     #PATH PARA PUBLICO
     #----------------------------------------------------------------------------------------------------------------------------------------------#

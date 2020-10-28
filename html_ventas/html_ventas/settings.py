@@ -101,7 +101,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': '127.0.0.1:1521/orclpdb',
-        'USER': 'YONATHAN',
+        'USER': 'YONATHAN3',
         'PASSWORD': '5151241',
         'TEST': {
             'USER': 'default_test',
@@ -112,7 +112,7 @@ DATABASES = {
     'other': {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': '127.0.0.1:1521/orcl',
-        'USER': 'YONATHAN',
+        'USER': 'YONATHAN3',
         'PASSWORD': '5151241',
         'TEST': {
             'USER': 'other_test',
@@ -162,6 +162,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+
+]
 
 
 AUTHENTICATION_BACKENDS = (

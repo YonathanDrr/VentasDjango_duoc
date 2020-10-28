@@ -63,14 +63,14 @@ reutilizando el codigo, para un mejor desempeño
                             <li>
                                 <a class="table-dark" href="{% url 'public'%}" class="">Inicio</a>
                             </li>
-                            <li>
+                            <!--     <li>
                                 <a class="table-dark" href="{% url 'leer'%}" class="">Mantenedores</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a class="table-dark" href="{% url 'compra'%}" class="">Compras</a>
                             </li>
                             <li>
-                                <a class="table-dark" href="#" class="">User: {{ user.username}}</a>
+                                <a class="table-dark" href="#" class="">{{ user.username}}</a>
                             </li>
                             <li>
                                 <a class="table-dark" href="{% url 'logout'%}" class="">Cerrar Sesion</a>

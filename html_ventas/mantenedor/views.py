@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 #from .forms import RegModelForm , ContactForm
 #from .models import Registrado
 from django.http import HttpResponse
-from.models import Producto
+from.models import Producto,Persona
 from .forms import ProductoForm, CustomUserForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login,authenticate
@@ -59,6 +59,12 @@ def perfil(request):
 
 def compra(request):
     return render(request,"mantenedor/Publico/compras.html")          
+
+
+def personaListado(request):
+    persona = Persona.objects.all()
+    print("registro",persona)
+    return render(request,"mantenedor/Persona/indexPersona.html",{'PersonaRegistros' : persona})      
 
 
 """ def registrar(request):
@@ -183,3 +189,12 @@ class ProductoEliminar(SuccessMessageMixin, DeleteView):
         success_message = 'Producto Eliminado Correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
         messages.success (self.request, (success_message))       
         return reverse('leer') # Redireccionamos a la vista principal 'leer'
+
+
+    
+""" def myfirstview(request):
+    data = {
+        'name': 'Yonathan',
+        'cursos' : Curso.objects.all()
+    }
+    return render(request, "mantenedor/newTemplates/indexNew.html",data) """
