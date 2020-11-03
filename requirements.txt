@@ -1,0 +1,5 @@
+    'crispy_forms',
+    'social_django',
+    'pwa',
+    'widget_tweaks',
+    'bootstrap4',

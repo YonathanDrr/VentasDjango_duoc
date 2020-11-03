@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'pwa',
     'widget_tweaks',
     'bootstrap4',
+    
   
 ]
 
@@ -165,3 +166,8 @@ SECURE_SSL_REDIRECT = False
 
 
 PWA_SERVICES_WORKER_PATH = os.path.join(BASE_DIR,'serviceworker.js')
+
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,"media")

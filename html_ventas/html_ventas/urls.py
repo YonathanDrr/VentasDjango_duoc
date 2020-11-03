@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path 
+from django.conf import settings
 from django.conf.urls.static import static
 
 
@@ -34,6 +35,9 @@ urlpatterns = [
 admin.site.site_header="Administracion de Ducky"
 admin.site.index_title="Modulos de administración"
 admin.site.site_title="Ducky"
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 
 #urlpatterns += static(setting.MEDIA_URL, document_root=setting.MEDIA_ROOT)

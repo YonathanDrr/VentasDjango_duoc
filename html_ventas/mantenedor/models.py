@@ -73,6 +73,7 @@ class Curso(models.Model):
     email = models.CharField( max_length=50)
     comunaFk = models.ForeignKey(Comuna, on_delete=models.CASCADE, verbose_name="ComunaId")
     direccion = models.CharField( max_length=50)
+    imagen = models.ImageField(upload_to="curso", null=True)
     
     class Meta:
         db_table = 'curso'
