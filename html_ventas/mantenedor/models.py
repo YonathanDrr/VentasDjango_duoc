@@ -66,8 +66,8 @@ class Region(models.Model) :
 
 class Curso(models.Model):
     titulo = models.CharField( max_length=50)
-    descripcion = models.TextField( max_length=70)
-    anio = models.CharField( max_length=50)
+    descripcion = models.TextField( max_length=200)
+    anio = models.CharField( max_length=50,verbose_name="año")
     precio = models.IntegerField() 
     autor = models.CharField( max_length=50)
     email = models.CharField( max_length=50)

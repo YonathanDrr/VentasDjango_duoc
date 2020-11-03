@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 #from .forms import RegModelForm , ContactForm
 #from .models import Registrado
 from django.http import HttpResponse
-from.models import Producto,Persona
+from.models import Producto,Persona,Curso
 from .forms import ProductoForm, CustomUserForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login,authenticate
@@ -42,7 +42,11 @@ def marca(request):
 
     
 def public(request):
-    return render(request,"mantenedor/Publico/indexPublic.html")    
+    cursos = Curso.objects.all()
+    data = {
+        'cursos' : cursos
+    }
+    return render(request,"mantenedor/Publico/indexPublic.html",data)    
 
 
 def login(request):
